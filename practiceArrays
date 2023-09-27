@@ -1,0 +1,163 @@
+ //-----------------------------------
+ let priceRanges = [
+    {label: '$', tooltip: 'Inexpensive', minPerPerson: 0, maxPerPerson: 10},
+    {label: '$', tooltip: 'Moderate', minPerPerson: 11, maxPerPerson: 20},
+    {label: '$', tooltip: 'Expensive', minPerPerson: 21, maxPerPerson: 60},
+ ];
+ 
+ let restaurant = [
+    {averagePerPerson: 5}
+ ]
+
+ //------------------------------------
+const nrs = [1, 2];
+
+//Add to end
+nrs.push(3,4, 1);
+//delete (& return) at end
+nrs.pop ();
+
+//Add to beginning
+nrs.unshift(0);
+//Delete (& return) at beginning 
+nrs.shift();
+
+//Add to middle
+nrs.splice(1, 0, 10 );
+//Delete middle
+nrs.splice(2, 1);
+
+console.log(nrs);
+console.log(nrs.indexOf(1));
+console.log(nrs.lastIndexOf(1));
+console.log(nrs.includes(4));
+
+let numbers = [1,2,3,4];
+let another = numbers;
+
+//emptying the first array by creating a copy to leaving the reference for another
+// numbers = [];
+
+//emptying the array; to truncate it, remove all element + for the reference
+//number.length = 0; <= probably most prefer
+//number.splice(0, numbers.length);
+
+//------------------------------------
+const courses = [ 
+    {id: 1, name: 'a'},
+    {id:2, name: 'b'}
+]
+
+const course = courses.find(function(course) {
+    return course.name === 'a';
+});
+
+const courseIndex = courses.findIndex(function(course) {
+    return course.name === 'a';
+});
+
+
+//---------------------------------------
+//arrow function: delete the word 'function' 
+// instead seperate the param from code block with =>
+
+const courseTest = courses.find(course => {
+    return course.name === "a"
+});
+
+//----------------------------------
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+// const combined= first.concat(second);
+const combined = [...first, ...second];
+
+// const copy = combined.slice();
+const copy = [...combined];
+
+//--------------------------------
+const nummers = [1,2,3];
+
+// for (let nummer of nummers)
+//     console.log(nummer);
+// ORR
+nummers.forEach(nummer => console.log(nummer) );
+
+//------------------------
+const num = [1,2,3, -1];
+
+const message = 'This is my very first message';
+const parts = message.split(' ');
+console.log(parts)
+
+// this can be usefull 4 creating urls
+const combo= parts.join('-');
+console.log(combo);
+//-----------------------------------
+testing
+const allPositive = num.every(function(value)  {
+return value >=0;
+});
+
+const atLeastOnePositive = num.some(function(value)  {
+    return value >=0;
+    });
+console.log(allPositive);
+console.log(atLeastOnePositive);
+
+// const filtered = num.filter(value => value >=0) 
+
+console.log(filtered);
+
+//--------------------------------------
+const filtered = num.filter(n => n >=0) 
+//use map method to map an existing element into something else
+const items = filtered.map(n => '<li>' + n + '</li>')
+
+const objItems = filtered.map(n => {
+    return {value:n };
+});
+
+//same as ^
+const items2 = num
+    .filter(n => n >= 0)
+    .map(n => ({value : n}));
+
+console.log(items2); 
+// console.log(objItems);  
+
+//---------------------------
+const numero = [1,2,3, -1];
+
+let sum = numero.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+);
+
+console.log(sum);
+
+//---------------------------------------------------
+const numbers3 = arrayFromRange(2 , 10);
+
+console.log(numbers3);
+
+function arrayFromRange (min, max){
+        const array = [];
+        for (let i = min; i < max; i++) {
+            array.push(i)
+            }
+            return array;
+}
+
+
+
+const makeArray = (min, max) => {
+    const array = []; 
+
+    for (let i = min; i <= max; i++) {
+        array.push(i)
+    };
+
+    return array;
+};
+
+let arrayIMade = makeArray(-10, 8);
